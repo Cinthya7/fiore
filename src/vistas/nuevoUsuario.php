@@ -1,11 +1,10 @@
-<html>
-<head>
-<title>Fiore e Dulci</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
-</head>
-<body>
+<?php
+	include 'header.php';
+?>
 
-	<form action="login.php" method="POST">
+	<label>Nuevo Usuario</label>
+
+	<form action="<?=$VISTA_NUEVO_USUARIO?>" method="POST">
 	
 		<table border="0" align="center" style="margin-top: 5%">
 		
@@ -20,7 +19,7 @@
 			
 			<tr>
 				<td colspan="2" align="center">
-					<input type="submit"/>
+					<input type="submit" label="Registrar" />
 				</td>
 			</tr>
 		
