@@ -3,7 +3,7 @@
 ?>
 
 	<label>Iniciar sesión</label>
-	<form action="<?=$SCRIPT_LOGIN ?>" method="POST">
+	<form action="../scripts/login.php" method="POST">
 	
 		<table border="0" align="center" style="margin-top: 5%">
 		

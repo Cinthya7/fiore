@@ -4,7 +4,7 @@
 
 	<label>Nuevo Usuario</label>
 
-	<form action="<?=$VISTA_NUEVO_USUARIO?>" method="POST">
+	<form action="../scripts/registroUsuario.php" method="POST">
 	
 		<table border="0" align="center" style="margin-top: 5%">
 		
@@ -19,7 +19,7 @@
 			
 			<tr>
 				<td colspan="2" align="center">
-					<input type="submit" label="Registrar" />
+					<input type="submit" />
 				</td>
 			</tr>
 		

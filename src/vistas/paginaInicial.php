@@ -9,11 +9,7 @@ Bienvenido %USUARIO%
 <table border="0">
 	<tr>
 		<td>
-			<div>
-				<a href="#">Usuarios</a><br/>
-				<a href="#">Productos</a><br/>
-				<a href="#">Salir</a><br/>
-			</div>
+			<?php include 'sidebar.php' ?>
 		</td>
 		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 		
