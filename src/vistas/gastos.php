@@ -2,7 +2,7 @@
 	include 'header.php';
 ?>
 
-<div align="left"><h3>Usuarios</h3></div>
+<div align="left"><h3>Gastos</h3></div>
 
 <br/>
 <br/>

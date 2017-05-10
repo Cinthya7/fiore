@@ -3,7 +3,7 @@
 	$password = $_POST['password'];
 	include '../utils/conexion.php';
 	
-	$sql = "select * from usuarios where id_usuario = '$usuario' and password = '" . md5($password) . "'";
+	$sql = "SELECT * FROM USUARIOS WHERE ID_USUARIO = '$usuario' AND PASSWORD = '" . md5($password) . "'";
 	$result = $conn->query($sql);
 	
 	if (!$result) {

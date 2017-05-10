@@ -1,10 +1,13 @@
 <?php
-	$usuario = $_POST['usuario'];
-	$password = $_POST['password'];
+	$id_productop = $_POST['id_productop'];
+	$id_productof = $_POST['id_productof'];
+	$descripcion = $_POST['descripcion'];
+	$cantidad = $_POST['cantidad'];
+	$precio_unit = $_POST['precio_unit'];
 	
 	include '../utils/conexion.php';
 	
-	$sql = "insert into productos(id_productof) values ($usuario, '" . md5($password) . "')";
+	$sql = "INSERT INTO PRODUCTOS(ID_PRODUCTOP, ID_PRODUCTOF, DESCRIPCION, CANTIDAD, PRECIO_UNIT) VALUES ('$id_productop','$id_productof','$descripcion',$cantidad,$precio_unit)";
 	$result = $conn->query($sql);
 	
 	if (!$result) {

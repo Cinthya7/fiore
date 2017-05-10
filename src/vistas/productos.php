@@ -2,7 +2,7 @@
 	include 'header.php';
 ?>
 
-Bienvenido %USUARIO%
+<div align="left"><h3>Productos</h3></div>
 
 <br/>
 <br/>
@@ -23,6 +23,7 @@ Bienvenido %USUARIO%
 						<td><b>ID FIORE E D</b></td>
 						<td><b>DESCRIPCION</b></td>
 						<td><b>CANTIDAD</b></td>
+						<td><b>PRECIO UNITARIO</b></td>
 						<td><b>MODIFICAR</b></td>
 						<td><b>ELIMINAR</b></td>
 					</tr>
@@ -32,17 +33,20 @@ Bienvenido %USUARIO%
 						include '../utils/conexion.php';
 						
 						
-						$result = $conn->query("select id_producto,id_productop,id_productof,descripcion,cantidad,imagen,id_sucursal from productos");
+						$result = $conn->query("SELECT ID_PRODUCTO,ID_PRODUCTOP,ID_PRODUCTOF,DESCRIPCION,CANTIDAD,IMAGEN,PRECIO_UNIT FROM PRODUCTOS ORDER BY ID_PRODUCTOP,ID_PRODUCTOF");
 						
-						if($result->num_rows > 0) {
+						if(!$result) {
+							trigger_error('Invalid query: ' . $conn->error);
+						} else if($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
 								echo "<tr>";
-								echo	"<td>".$row["id_productop"]."</td>";
-								echo	"<td>".$row["id_productof"]."</td>";
-								echo	"<td>".$row["descripcion"]."</td>";
-								echo	"<td>".$row["cantidad"]."</td>";
-								echo	"<td><a href='modificarProducto.php?id_producto=".$row["id_producto"]."'>MODIFICAR</a></td>";
-								echo	"<td><a href='eliminarProducto.php?id_producto=".$row["id_producto"]."'>ELIMINAR</a></td>";
+								echo	"<td>".$row["ID_PRODUCTOP"]."</td>";
+								echo	"<td>".$row["ID_PRODUCTOF"]."</td>";
+								echo	"<td>".$row["DESCRIPCION"]."</td>";
+								echo	"<td>".$row["CANTIDAD"]."</td>";
+								echo	"<td>".$row["PRECIO_UNIT"]."</td>";
+								echo	"<td><a href='modificarProducto.php?id_producto=".$row["ID_PRODUCTO"]."'>MODIFICAR</a></td>";
+								echo	"<td><a href='eliminarProducto.php?id_producto=".$row["ID_PRODUCTO"]."'>ELIMINAR</a></td>";
 								echo "</tr>";
 							}
 						} else {

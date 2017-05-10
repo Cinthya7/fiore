@@ -2,7 +2,7 @@
 	include 'header.php';
 ?>
 
-	<label>Iniciar sesión</label>
+	<div align="center"><h3>Iniciar sesión</h3></div>
 	<form action="../scripts/login.php" method="POST">
 	
 		<table border="0" align="center" style="margin-top: 5%">

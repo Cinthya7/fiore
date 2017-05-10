@@ -1,10 +1,11 @@
 <?php
 	$usuario = $_POST['usuario'];
+	$nombre = $_POST['nombre'];
 	$password = $_POST['password'];
 	
 	include '../utils/conexion.php';
 	
-	$sql = "insert into usuarios(id_usuario, password) values ($usuario, '" . md5($password) . "')";
+	$sql = "INSERT INTO USUARIOS(ID_USUARIO, NOMBRE, PASSWORD) VALUES ('$usuario','$nombre', '" . md5($password) . "')";
 	$result = $conn->query($sql);
 	
 	if (!$result) {
