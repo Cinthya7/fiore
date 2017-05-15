@@ -1,4 +1,9 @@
 <?php
+	session_start();
+	
+	if(!isset($_SESSION["id_usuario"]))
+		header("Location: index.php");
+	
 	include 'header.php';
 ?>
 
@@ -25,7 +30,7 @@
 						<td><b>CANTIDAD</b></td>
 						<td><b>PRECIO UNITARIO</b></td>
 						<td><b>MODIFICAR</b></td>
-						<td><b>ELIMINAR</b></td>
+						<td><b>DESACTIVAR</b></td>
 					</tr>
 					
 					<?php
@@ -46,7 +51,7 @@
 								echo	"<td>".$row["CANTIDAD"]."</td>";
 								echo	"<td>".$row["PRECIO_UNIT"]."</td>";
 								echo	"<td><a href='modificarProducto.php?id_producto=".$row["ID_PRODUCTO"]."'>MODIFICAR</a></td>";
-								echo	"<td><a href='eliminarProducto.php?id_producto=".$row["ID_PRODUCTO"]."'>ELIMINAR</a></td>";
+								echo	"<td><a href='eliminarProducto.php?id_producto=".$row["ID_PRODUCTO"]."'>DESACTIVAR</a></td>";
 								echo "</tr>";
 							}
 						} else {

@@ -1,4 +1,9 @@
 <?php
+	session_start();
+	
+	if(!isset($_SESSION["id_usuario"]))
+		header("Location: index.php");
+	
 	include 'header.php';
 ?>
 
@@ -22,7 +27,7 @@
 						<td><b>ID USUARIO</b></td>
 						<td><b>NOMBRE</b></td>
 						<td><b>MODIFICAR</b></td>
-						<td><b>ELIMINAR</b></td>
+						<td><b>DESACTIVAR</b></td>
 					</tr>
 					
 					<?php
@@ -40,7 +45,7 @@
 								echo	"<td>".$row["ID_USUARIO"]."</td>";
 								echo	"<td>".$row["NOMBRE"]."</td>";
 								echo	"<td><a href='modificarUsuario.php?id_usuario=".$row["ID_USUARIO"]."'>MODIFICAR</a></td>";
-								echo	"<td><a href='eliminarUsuario.php?id_usuario=".$row["ID_USUARIO"]."'>ELIMINAR</a></td>";
+								echo	"<td><a href='desactivarUsuario.php?id_usuario=".$row["ID_USUARIO"]."'>DESACTIVAR</a></td>";
 								echo "</tr>";
 							}
 						} else {
