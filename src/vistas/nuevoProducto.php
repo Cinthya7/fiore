@@ -35,11 +35,11 @@
 					</tr>
 					<tr>
 						<td>DESCRIPCION</td>
-						<td><input type="text" name="descripcion"/><td>
+						<td><input type="text" name="descripcion"/></td>
 					</tr>
 					<tr>
 						<td>CANTIDAD</td>
-						<td><input type="text" name="cantidad"/><td>
+						<td><input type="text" name="cantidad"/></td>
 					</tr>
 					<tr>
 						<td>PRECIO UNITARIO</td>
@@ -55,8 +55,8 @@
 				</table>
 			
 			</form>
-	<tr>
-<table>
+	</tr>
+</table>
 
 </body>
 </html>
