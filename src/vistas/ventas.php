@@ -46,7 +46,7 @@
 								echo "<tr>";
 								echo	"<td>".$row["ID_VENTA"]."</td>";
 								echo	"<td>".$row["MONTO"]."</td>";
-								echo	"<td>".$row["USUARIO"]."</td>";
+								echo	"<td>".$row["ID_USUARIO"]."</td>";
 								echo	"<td>".$row["FECHA"]."</td>";
 								echo	"<td><a href='modificarProducto.php?id_producto=".$row["ID_VENTA"]."'>MODIFICAR</a></td>";
 								echo	"<td><a href='eliminarProducto.php?id_producto=".$row["ID_VENTA"]."'>DESACTIVAR</a></td>";
