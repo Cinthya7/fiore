@@ -50,7 +50,7 @@
 								echo	"<td>".$row["DESCRIPCION"]."</td>";
 								echo	"<td>".$row["CANTIDAD"]."</td>";
 								echo	"<td>".$row["PRECIO_UNIT"]."</td>";
-								echo	"<td><a href='modificarProducto.php?id_producto=".$row["ID_PRODUCTO"]."'>MODIFICAR</a></td>";
+								echo	"<td><a href='modProducto.php?id_producto=".$row["ID_PRODUCTO"]."'>MODIFICAR</a></td>";
 								echo	"<td><a href='eliminarProducto.php?id_producto=".$row["ID_PRODUCTO"]."'>DESACTIVAR</a></td>";
 								echo "</tr>";
 							}
