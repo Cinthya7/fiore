@@ -5,6 +5,7 @@
 		header("Location: index.php");
 
 	include 'header.php';
+	include '../utils/conexion.php';
 ?>
 
 <div align="left"><h3>Nueva Venta</h3></div>
@@ -30,7 +31,28 @@
 					</tr>
 					<tr>
 						<td>USUARIO</td>
-						<td><input type="text" name="usuario" value="<?=$_SESSION["id_usuario"];?>"/></td>
+						<td>
+							<select name="usuario">
+							<?php
+							
+								$result = $conn -> query("SELECT ID_USUARIO, NOMBRE FROM USUARIOS WHERE ACTIVO = TRUE");
+							
+								if(!$result) {
+									trigger_error('Invalid query: ' . $conn->error);
+								} else {
+									if($result->num_rows > 0) {
+										while($row = $result->fetch_assoc()) {
+											$selected = '';
+											if($row["ID_USUARIO"] == $_SESSION["id_usuario"])
+												$selected = 'selected="selected"';
+											
+											echo '<option value="' . $row["ID_USUARIO"] . '" '.$selected.'>'.$row["ID_USUARIO"].' - '.$row["NOMBRE"].'</option>';
+										}
+									}
+								}
+							?>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td>FECHA</td>
@@ -89,7 +111,7 @@ function agregaProducto() {
 	var col1 = fila.insertCell(0);
 	var col2 = fila.insertCell(1);
 	
-	col1.innerHTML = seleccion.innerHTML.replace(/#/,numFila);
+	col1.innerHTML = seleccion.innerHTML.replace(/#/g,numFila);
 	col2.innerHTML = "<input type=\"text\" id=\"cantidad_"+numFila+"\" name=\"cantidad_"+numFila+"\" onChange=\"cambiaCantidad("+numFila+")\" value=\"1\"/>";
 	
 	numFila++;
@@ -129,7 +151,7 @@ function eliminaProductos() {
 	<select id="producto_#" name="producto_#" onChange="cambiaCantidad()">
 		<option value="-1">Seleccionar</option>
 		<?php
-			include '../utils/conexion.php';
+			
 			
 			$result = $conn->query("SELECT ID_PRODUCTO, ID_PRODUCTOP, ID_PRODUCTOF, DESCRIPCION, CANTIDAD, IMAGEN, PRECIO_UNIT FROM PRODUCTOS WHERE ACTIVO = TRUE");
 			
