@@ -17,7 +17,7 @@
 	}
 ?>
 
-<div align="left"><h3>Nuevo Producto</h3></div>
+<div align="left"><h3>Modificar Producto</h3></div>
 
 <br/>
 <br/>

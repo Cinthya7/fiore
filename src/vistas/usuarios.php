@@ -44,7 +44,7 @@
 								echo "<tr>";
 								echo	"<td>".$row["ID_USUARIO"]."</td>";
 								echo	"<td>".$row["NOMBRE"]."</td>";
-								echo	"<td><a href='modificarUsuario.php?id_usuario=".$row["ID_USUARIO"]."'>MODIFICAR</a></td>";
+								echo	"<td><a href='modUsuario.php?id_usuario=".$row["ID_USUARIO"]."'>MODIFICAR</a></td>";
 								echo	"<td><a href='desactivarUsuario.php?id_usuario=".$row["ID_USUARIO"]."'>DESACTIVAR</a></td>";
 								echo "</tr>";
 							}

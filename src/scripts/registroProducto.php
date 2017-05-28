@@ -7,7 +7,7 @@
 	
 	include '../utils/conexion.php';
 	
-	$sql = "INSERT INTO PRODUCTOS(ID_PRODUCTOP, ID_PRODUCTOF, DESCRIPCION, CANTIDAD, PRECIO_UNIT) VALUES ('$id_productop','$id_productof','$descripcion',$cantidad,$precio_unit)";
+	$sql = "INSERT INTO PRODUCTOS(ID_PRODUCTOP, ID_PRODUCTOF, DESCRIPCION, CANTIDAD, PRECIO_UNIT, ACTIVO) VALUES ('$id_productop','$id_productof','$descripcion',$cantidad,$precio_unit,TRUE)";
 	$result = $conn->query($sql);
 	
 	if (!$result) {

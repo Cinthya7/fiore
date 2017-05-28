@@ -5,7 +5,7 @@
 	
 	include '../utils/conexion.php';
 	
-	$sql = "INSERT INTO USUARIOS(ID_USUARIO, NOMBRE, PASSWORD) VALUES ('$usuario','$nombre', '" . md5($pass) . "')";
+	$sql = "INSERT INTO USUARIOS(ID_USUARIO, NOMBRE, PASSWORD, ACTIVO) VALUES ('$usuario','$nombre', '" . md5($pass) . "',TRUE)";
 	$result = $conn->query($sql);
 	
 	if (!$result) {
