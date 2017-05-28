@@ -1,10 +1,10 @@
 <?php
 	session_start();
 	$usuario = $_POST['usuario'];
-	$password = $_POST['password'];
+	$pass = $_POST['pass'];
 	include '../utils/conexion.php';
 	
-	$sql = "SELECT * FROM USUARIOS WHERE ID_USUARIO = '$usuario' AND PASSWORD = '" . md5($password) . "'";
+	$sql = "SELECT * FROM USUARIOS WHERE ID_USUARIO = '$usuario' AND PASSWORD = '" . md5($pass) . "'";
 	$result = $conn->query($sql);
 	
 	if (!$result) {
