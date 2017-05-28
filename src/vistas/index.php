@@ -2,7 +2,7 @@
 	include 'header.php';
 ?>
 
-	<div align="center"><h3>Iniciar sesión</h3></div>
+	<div align="center"><h3>Iniciar sesiÃ³n</h3></div>
 	<form action="../scripts/login.php" method="POST">
 	
 		<table border="0" align="center" style="margin-top: 5%">
@@ -12,7 +12,8 @@
 				<td><input type="text" name="usuario"/></td>
 			</tr>
 			<tr>
-				<td>Contrase�a</td>
+				<td>Contraseña</td>
+
 				<td><input type="password" name="pass"/></td>
 			</tr>
 			
