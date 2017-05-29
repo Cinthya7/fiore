@@ -1,30 +1,54 @@
 <?php
-	include 'header.php';
+include 'header.php';
 ?>
 
-	<h1 align="center" style="color: red">USUARIO INCORRECTO</h1>
-	<form action="../scripts/login.php" method="POST">
-	
-		<table border="0" align="center" style="margin-top: 5%">
-		
-			<tr>
-				<td>Usuario</td>
-				<td><input type="text" name="usuario"/></td>
-			</tr>
-			<tr>
-				<td>Contraseña</td>
-				<td><input type="password" name="password"/></td>
-			</tr>
-			
-			<tr>
-				<td colspan="2" align="center">
-					<input type="submit"/>
-				</td>
-			</tr>
-		
-		</table>
-	
-	</form>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+
+			<div class="panel-body">
+				<div class="alert alert-danger">Usuario incorrecto</div>
+			</div>
+
+			<div class="login-panel panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Iniciar sesión</h3>
+				</div>
+				<div class="panel-body">
+					<form role="form" action="../scripts/login.php" method="POST">
+						<fieldset>
+							<div class="form-group">
+								<input class="form-control" placeholder="Usuario" name="usuario"
+									autofocus>
+							</div>
+							<div class="form-group">
+								<input class="form-control" placeholder="Password" name="pass"
+									type="password" value="">
+							</div>
+							<!-- Change this to a button or input when using this as a form -->
+							<input type="submit" class="btn btn-lg btn-success btn-block">
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- jQuery -->
+<script src="../vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
 
 </body>
+
 </html>

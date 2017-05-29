@@ -6,22 +6,9 @@
 	
 	include 'header.php';
 ?>
-
+<?php include 'sidebar.php' ?>
 <div align="left"><h3>Productos</h3></div>
 
-<br/>
-<br/>
-<table border="0">
-	<tr>
-		<td>
-			<div>
-				<?php include 'sidebar.php' ?>
-			</div>
-		</td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-		
-		<td>
-			<div>
 				<table border="1">
 					<tr>
 						<td><b>ID PROVEEDOR</b></td>
@@ -61,10 +48,4 @@
 					?>
 				</table>
 				<a href="nuevoProducto.php">Dar de alta nuevo producto</a>
-			</div>
-		</td>
-	<tr>
-<table>
-
-</body>
-</html>
+<?php include 'footer.php' ?>

@@ -1,100 +1,91 @@
 <?php
-	session_start();
-	
-	if(!isset($_SESSION["id_usuario"]))
-		header("Location: index.php");
+session_start ();
 
-	include 'header.php';
-	include '../utils/conexion.php';
+if (! isset ( $_SESSION ["id_usuario"] ))
+	header ( "Location: index.php" );
+
+include 'header.php';
+include '../utils/conexion.php';
 ?>
 
-<div align="left"><h3>Nueva Venta</h3></div>
+<?php include 'sidebar.php' ?>
 
-<br/>
-<br/>
-<table border="0">
-	<tr>
-		<td>
-			<div>
-				<?php include 'sidebar.php' ?>
-			</div>
-		</td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-		
-		<td>
-			<form action="../scripts/registroVenta.php" method="POST">
-			
-				<table border="0" align="center" style="margin-top: 5%">
-					<tr>
-						<td>MONTO</td>
-						<td><input type="text" id="monto" name="monto" value="0.00"/></td>
-					</tr>
-					<tr>
-						<td>USUARIO</td>
-						<td>
-							<select name="usuario">
+<div align="left">
+	<h3>Nueva Venta</h3>
+</div>
+
+<br />
+<br />
+
+<form action="../scripts/registroVenta.php" method="POST">
+
+	<table border="0" align="center" style="margin-top: 5%">
+		<tr>
+			<td>MONTO</td>
+			<td><input type="text" id="monto" name="monto" value="0.00" /></td>
+		</tr>
+		<tr>
+			<td>USUARIO</td>
+			<td><select name="usuario">
 							<?php
 							
-								$result = $conn -> query("SELECT ID_USUARIO, NOMBRE FROM USUARIOS WHERE ACTIVO = TRUE");
+							$result = $conn->query ( "SELECT ID_USUARIO, NOMBRE FROM USUARIOS WHERE ACTIVO = TRUE" );
 							
-								if(!$result) {
-									trigger_error('Invalid query: ' . $conn->error);
-								} else {
-									if($result->num_rows > 0) {
-										while($row = $result->fetch_assoc()) {
-											$selected = '';
-											if($row["ID_USUARIO"] == $_SESSION["id_usuario"])
-												$selected = 'selected="selected"';
-											
-											echo '<option value="' . $row["ID_USUARIO"] . '" '.$selected.'>'.$row["ID_USUARIO"].' - '.$row["NOMBRE"].'</option>';
-										}
+							if (! $result) {
+								trigger_error ( 'Invalid query: ' . $conn->error );
+							} else {
+								if ($result->num_rows > 0) {
+									while ( $row = $result->fetch_assoc () ) {
+										$selected = '';
+										if ($row ["ID_USUARIO"] == $_SESSION ["id_usuario"])
+											$selected = 'selected="selected"';
+										
+										echo '<option value="' . $row ["ID_USUARIO"] . '" ' . $selected . '>' . $row ["ID_USUARIO"] . ' - ' . $row ["NOMBRE"] . '</option>';
 									}
 								}
+							}
 							?>
-							</select>
-						</td>
+							</select></td>
+		</tr>
+		<tr>
+			<td>FECHA</td>
+			<td><input type="text" name="fecha"
+				value="<?php
+				$tz = 'America/Mexico_City';
+				$timestamp = time ();
+				$dt = new DateTime ( "now", new DateTimeZone ( $tz ) ); // first argument "must" be a string
+				$dt->setTimestamp ( $timestamp ); // adjust the object to correct timestamp
+				echo $dt->format ( 'd/m/Y' );
+				?>" /></td>
+		</tr>
+
+		<tr>
+			<td colspan="2">
+				<table border="0" id="productos">
+					<tr>
+						<td>PRODUCTO</td>
+						<td>CANTIDAD</td>
 					</tr>
 					<tr>
-						<td>FECHA</td>
-						<td><input type="text" name="fecha" value="<?php
-								$tz = 'America/Mexico_City';
-								$timestamp = time();
-								$dt = new DateTime("now", new DateTimeZone($tz)); //first argument "must" be a string
-								$dt->setTimestamp($timestamp); //adjust the object to correct timestamp
-								echo $dt->format('d/m/Y');
-							?>"/></td>
+						<td>N/A</td>
+						<td>N/A</td>
 					</tr>
-					
 					<tr>
-						<td colspan="2">
-							<table border="0" id="productos">
-								<tr>
-									<td>PRODUCTO</td>
-									<td>CANTIDAD</td>
-								</tr>
-								<tr>									
-									<td>N/A</td>
-									<td>N/A</td>
-								</tr>
-								<tr>
-									<td colspan="3"><input type="button" value="Otro" onClick="agregaProducto()"/></td>
-								</tr>
-							</table>
-						</td>
+						<td colspan="3"><input type="button" value="Otro"
+							onClick="agregaProducto()" /></td>
 					</tr>
-					
-					<tr>
-						<td colspan="2" align="center">
-							<input type="submit"/>
-							<input type="reset" onClick="eliminaProductos()" />
-						</td>
-					</tr>
-				
 				</table>
-			
-			</form>
-	</tr>
-</table>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2" align="center"><input type="submit" /> <input
+				type="reset" onClick="eliminaProductos()" /></td>
+		</tr>
+
+	</table>
+
+</form>
 
 <script type="text/javascript">
 
@@ -151,20 +142,18 @@ function eliminaProductos() {
 	<select id="producto_#" name="producto_#" onChange="cambiaCantidad()">
 		<option value="-1">Seleccionar</option>
 		<?php
-			
-			
-			$result = $conn->query("SELECT ID_PRODUCTO, ID_PRODUCTOP, ID_PRODUCTOF, DESCRIPCION, CANTIDAD, IMAGEN, PRECIO_UNIT FROM PRODUCTOS WHERE ACTIVO = TRUE");
-			
-			if(!$result) {
-				trigger_error('Invalid query: ' . $conn->error);
-			} else if($result->num_rows > 0) {
-				while($row = $result->fetch_assoc()) {
-					echo '<option value="'.$row['ID_PRODUCTO'].'$'.$row['PRECIO_UNIT'].'">'.$row['DESCRIPCION'].' --- $'.$row['PRECIO_UNIT'].'</option>';
-				}
+		
+		$result = $conn->query ( "SELECT ID_PRODUCTO, ID_PRODUCTOP, ID_PRODUCTOF, DESCRIPCION, CANTIDAD, IMAGEN, PRECIO_UNIT FROM PRODUCTOS WHERE ACTIVO = TRUE" );
+		
+		if (! $result) {
+			trigger_error ( 'Invalid query: ' . $conn->error );
+		} else if ($result->num_rows > 0) {
+			while ( $row = $result->fetch_assoc () ) {
+				echo '<option value="' . $row ['ID_PRODUCTO'] . '$' . $row ['PRECIO_UNIT'] . '">' . $row ['DESCRIPCION'] . ' --- $' . $row ['PRECIO_UNIT'] . '</option>';
 			}
+		}
 		?>
 	</select>
 </div>
 
-</body>
-</html>
+<?php include 'footer.php' ?>
