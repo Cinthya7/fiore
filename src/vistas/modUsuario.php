@@ -18,32 +18,32 @@ if (! $result) {
 }
 ?>
 <?php include 'sidebar.php' ?>
-<div align="left">
-	<h3>Modificar Usuario</h3>
+
+<br />
+<br />
+
+<div class="panel panel-default">
+	<div class="panel-heading">Actualizar Usuario</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-lg-6">
+				<form role="form" action="../scripts/actualizacionUsuario.php"
+					method="POST">
+					<div class="form-group">
+						<label>Usuario</label> <input class="form-control" name="usuario"
+							placeholder="Usuario" maxlength="10" autocomplete="off" required="required" value="<?= $id_usuario;?>" readonly="readonly">
+					</div>
+					<div class="form-group">
+						<label>Nombre</label> <input class="form-control" name="nombre"
+							placeholder="Nombre del usuario" maxlength="50" autocomplete="off" required="required" value="<?= $row["NOMBRE"] ?>">
+					</div>
+					<button type="submit" class="btn btn-default">Actualizar</button>
+					<button type="reset" class="btn btn-default">Restaurar campos</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 
-<br />
-<br />
 
-<form action="../scripts/actualizacionUsuario.php" method="POST">
-
-	<table border="0" align="center" style="margin-top: 5%">
-
-		<tr>
-			<td>Usuario</td>
-			<td><input type="text" name="usuario" readonly="true"
-				value="<?= $id_usuario;?>" /></td>
-		</tr>
-		<tr>
-			<td>Nombre</td>
-			<td><input type="text" name="nombre" value="<?= $row["NOMBRE"] ?>" /></td>
-		</tr>
-
-		<tr>
-			<td colspan="2" align="center"><input type="submit" /></td>
-		</tr>
-
-	</table>
-
-</form>
 <?php include 'footer.php' ?>

@@ -18,51 +18,60 @@ if (! $result) {
 ?>
 
 <?php include 'sidebar.php' ?>
-<div align="left">
-	<h3>Modificar Producto</h3>
+
+<br />
+<br />
+
+<div class="panel panel-default">
+	<div class="panel-heading">Modificar producto</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-lg-6">
+				<form role="form" action="../scripts/actualizacionProducto.php"
+					method="POST">
+					<div class="form-group">
+						<label>ID Proveedor</label> <input class="form-control"
+							name="id_productop"
+							placeholder="ID usado por el proveedor del producto"
+							maxlength="11" autocomplete="off" autofocus="autofocus"
+							type="number" value="<?= $row["ID_PRODUCTOP"]; ?>">
+					</div>
+					<div class="form-group">
+						<label>ID Fiore e Dulci</label> <input class="form-control"
+							name="id_productof" placeholder="ID usuario por Fiore e Dulci"
+							maxlength="4" autocomplete="off"
+							value="<?= $row["ID_PRODUCTOF"]; ?>">
+					</div>
+					<div class="form-group">
+						<label>Descripcion</label> <input class="form-control"
+							name="descripcion" placeholder="Descripción del producto"
+							maxlength="100" autocomplete="off" required="required"
+							value="<?= $row["DESCRIPCION"]; ?>">
+					</div>
+					<div class="form-group">
+						<label>Cantidad</label> <input class="form-control"
+							name="cantidad" placeholder="Cantidad en el inventario"
+							maxlength="11" autocomplete="off" required="required"
+							type="number" value="<?= $row["CANTIDAD"]; ?>">
+					</div>
+					<div class="form-group">
+
+						<label>Precio unitario</label>
+						<div class="form-group input-group">
+							<span class="input-group-addon">$</span> <input
+								class="form-control" name="precio_unit"
+								placeholder="Costo de cada pieza" maxlength="11"
+								autocomplete="off" required="required"
+								value="<?= $row["PRECIO_UNIT"]; ?>">
+						</div>
+					</div>
+
+					<input type="text" name="id_producto" value="<?= $id_producto; ?>" style="visibility: hidden;">
+					<button type="submit" class="btn btn-default">Actualizar</button>
+					<button type="reset" class="btn btn-default">Restaurar campos</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
-
-<br />
-<br />
-<form action="../scripts/actualizacionProducto.php" method="POST">
-
-	<table border="0" align="center" style="margin-top: 5%">
-		<tr style="visibility: hidden;">
-			<td>ID PRODUCTO</td>
-			<td><input type="text" name="id_producto"
-				value="<?= $id_producto; ?>" /></td>
-		</tr>
-		<tr>
-			<td>ID PROVEEDOR</td>
-			<td><input type="text" name="id_productop"
-				value="<?= $row["ID_PRODUCTOP"]; ?>" /></td>
-		</tr>
-		<tr>
-			<td>ID FIORE E D</td>
-			<td><input type="text" name="id_productof"
-				value="<?= $row["ID_PRODUCTOF"]; ?>" /></td>
-		</tr>
-		<tr>
-			<td>DESCRIPCION</td>
-			<td><input type="text" name="descripcion"
-				value="<?= $row["DESCRIPCION"]; ?>" /></td>
-		</tr>
-		<tr>
-			<td>CANTIDAD</td>
-			<td><input type="text" name="cantidad"
-				value="<?= $row["CANTIDAD"]; ?>" /></td>
-		</tr>
-		<tr>
-			<td>PRECIO UNITARIO</td>
-			<td><input type="text" name="precio_unit"
-				value="<?= $row["PRECIO_UNIT"]; ?>" /></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center"><input type="submit" /> <input
-				type="reset" /></td>
-		</tr>
-
-	</table>
-
-</form>
-<?php include 'footer.php'?>
+<?php include 'footer.php' ?>
