@@ -9,7 +9,7 @@ include '../utils/conexion.php';
 
 $id_usuario = $_GET ["id_usuario"];
 
-$result = $conn->query ( "SELECT ID_USUARIO,NOMBRE,ACTIVO FROM USUARIOS WHERE ID_USUARIO = $id_usuario" );
+$result = $conn->query ( "SELECT ID_USUARIO,NOMBRE,ACTIVO FROM USUARIOS WHERE ID_USUARIO = '$id_usuario'" );
 
 if (! $result) {
 	trigger_error ( 'Invalid query: ' . $conn->error );
