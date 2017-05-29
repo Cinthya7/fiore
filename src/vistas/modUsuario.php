@@ -38,7 +38,7 @@
 				
 					<tr>
 						<td>Usuario</td>
-						<td><input type="text" name="usuario" disabled="true" value="<?= $row["ID_USUARIO"]; ?>"/></td>
+						<td><input type="text" name="usuario" readonly="true" value="<?= $id_usuario;?>"/></td>
 					</tr>
 					<tr>
 						<td>Nombre</td>
