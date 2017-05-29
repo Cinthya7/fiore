@@ -53,7 +53,7 @@ include 'header.php';
 		
 		?>
 </table>
-<a href="nuevoUsuario.php">Crear nuevo usuario</a>
+<a href="nuevoUsuario.php" class="btn btn-primary">Crear nuevo usuario</a>
 
 
 

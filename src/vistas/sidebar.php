@@ -17,15 +17,15 @@
 	<div class="navbar-default sidebar" role="navigation">
 		<div class="sidebar-nav navbar-collapse">
 			<ul class="nav" id="side-menu">
-				<li><a href="paginaInicial.php"><i class="fa"></i>Inicio</a>
+				<li><a href="paginaInicial.php"><i class="fa fa-home fa-fw"></i>Inicio</a>
 				</li>
-				<li><a href="usuarios.php"><i class="fa"></i>Usuarios</a>
+				<li><a href="usuarios.php"><i class="fa fa-users fa-fw"></i>Usuarios</a>
 				</li>
-				<li><a href="productos.php"><i class="fa"></i>Productos</a>
+				<li><a href="productos.php"><i class="fa fa-cubes fa-fw"></i>Productos</a>
 				</li>
-				<li><a href="ventas.php"><i class="fa"></i>Ventas</a>
+				<li><a href="ventas.php"><i class="fa fa-usd fa-fw"></i>Ventas</a>
 				</li>
-				<li><a href="../scripts/salir.php"><i class="fa"></i>Salir</a>
+				<li><a href="../scripts/salir.php"><i class="fa fa-sign-out fa-fw"></i>Salir</a>
 				</li>
 			</ul>
 		</div>

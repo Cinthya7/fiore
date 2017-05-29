@@ -53,7 +53,7 @@ include 'header.php';
 		?>
 	</tbody>
 </table>
-<a href="nuevoProducto.php">Dar de alta nuevo producto</a>
+<a href="nuevoProducto.php" class="btn btn-primary">Dar de alta nuevo producto</a>
 <?php include 'footer.php' ?>
 
 <!-- DataTables JavaScript -->
