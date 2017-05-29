@@ -21,9 +21,9 @@ $usuario = $_POST["usuario"];
 $monto = $_POST["monto"];
 $fechaa = $_POST["fecha"];
 
-$fecha =  date_format(DateTime::createFromFormat('d/m/Y', $fechaa), 'Y-m-d');
+//$fecha =  date_format(DateTime::createFromFormat('d/m/Y', $fechaa), 'Y-m-d');
 
-$conn->query("INSERT INTO VENTAS(MONTO,ID_USUARIO,FECHA) VALUES($monto, '$usuario', '$fecha')");
+$conn->query("INSERT INTO VENTAS(MONTO,ID_USUARIO,FECHA) VALUES($monto, '$usuario', '$fechaa')");
 $auto_id = $conn->insert_id;
 
 for($i=1; $i<=count($productos); $i++) {

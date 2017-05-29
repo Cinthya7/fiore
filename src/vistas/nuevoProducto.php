@@ -7,43 +7,55 @@ if (! isset ( $_SESSION ["id_usuario"] ))
 include 'header.php';
 ?>
 <?php include 'sidebar.php' ?>
-<div align="left">
-	<h3>Nuevo Producto</h3>
+
+<br />
+<br />
+
+<div class="panel panel-default">
+	<div class="panel-heading">Nuevo Producto</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-lg-6">
+				<form role="form" action="../scripts/registroProducto.php"
+					method="POST">
+					<div class="form-group">
+						<label>ID Proveedor</label> <input class="form-control"
+							name="id_productop"
+							placeholder="ID usado por el proveedor del producto"
+							maxlength="11" autocomplete="off" autofocus="autofocus" type="number">
+					</div>
+					<div class="form-group">
+						<label>ID Fiore e Dulci</label> <input class="form-control"
+							name="id_productof" placeholder="ID usuario por Fiore e Dulci"
+							maxlength="4" autocomplete="off">
+					</div>
+					<div class="form-group">
+						<label>Descripcion</label> <input class="form-control"
+							name="descripcion" placeholder="Descripción del producto"
+							maxlength="100" autocomplete="off" required="required">
+					</div>
+					<div class="form-group">
+						<label>Cantidad</label> <input class="form-control"
+							name="cantidad" placeholder="Cantidad en el inventario"
+							maxlength="11" autocomplete="off" required="required" type="number">
+					</div>
+					<div class="form-group">
+					
+						<label>Precio unitario</label>
+						<div class="form-group input-group">
+							<span class="input-group-addon">$</span> 
+							<input class="form-control"
+								name="precio_unit" placeholder="Costo de cada pieza"
+								maxlength="11" autocomplete="off" required="required">
+						</div>
+					</div>
+
+
+					<button type="submit" class="btn btn-default">Dar de alta</button>
+					<button type="reset" class="btn btn-default">Limpiar campos</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
-
-<br />
-<br />
-
-<form action="../scripts/registroProducto.php" method="POST">
-
-	<table border="0" align="center" style="margin-top: 5%">
-
-		<tr>
-			<td>ID PROVEEDOR</td>
-			<td><input type="text" name="id_productop" /></td>
-		</tr>
-		<tr>
-			<td>ID FIORE E D</td>
-			<td><input type="text" name="id_productof" /></td>
-		</tr>
-		<tr>
-			<td>DESCRIPCION</td>
-			<td><input type="text" name="descripcion" /></td>
-		</tr>
-		<tr>
-			<td>CANTIDAD</td>
-			<td><input type="text" name="cantidad" /></td>
-		</tr>
-		<tr>
-			<td>PRECIO UNITARIO</td>
-			<td><input type="text" name="precio_unit" /></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center"><input type="submit" /> <input
-				type="reset" /></td>
-		</tr>
-
-	</table>
-
-</form>
 <?php include 'footer.php' ?>

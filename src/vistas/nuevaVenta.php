@@ -10,82 +10,84 @@ include '../utils/conexion.php';
 
 <?php include 'sidebar.php' ?>
 
-<div align="left">
-	<h3>Nueva Venta</h3>
-</div>
-
 <br />
 <br />
 
-<form action="../scripts/registroVenta.php" method="POST">
-
-	<table border="0" align="center" style="margin-top: 5%">
-		<tr>
-			<td>MONTO</td>
-			<td><input type="text" id="monto" name="monto" value="0.00" /></td>
-		</tr>
-		<tr>
-			<td>USUARIO</td>
-			<td><select name="usuario">
-							<?php
-							
-							$result = $conn->query ( "SELECT ID_USUARIO, NOMBRE FROM USUARIOS WHERE ACTIVO = TRUE" );
-							
-							if (! $result) {
-								trigger_error ( 'Invalid query: ' . $conn->error );
-							} else {
-								if ($result->num_rows > 0) {
-									while ( $row = $result->fetch_assoc () ) {
-										$selected = '';
-										if ($row ["ID_USUARIO"] == $_SESSION ["id_usuario"])
-											$selected = 'selected="selected"';
-										
-										echo '<option value="' . $row ["ID_USUARIO"] . '" ' . $selected . '>' . $row ["ID_USUARIO"] . ' - ' . $row ["NOMBRE"] . '</option>';
-									}
+<div class="panel panel-default">
+	<div class="panel-heading">Nueva Venta</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-lg-6">
+				<form role="form" action="../scripts/registroVenta.php"
+					method="POST">
+					<div class="form-group">
+						<label>Monto</label>
+						<div class="form-group input-group">
+							<span class="input-group-addon">$</span> <input
+								class="form-control" name="monto" id="monto"
+								placeholder="Monto total" maxlength="13" autocomplete="off">
+						</div>
+					</div>
+					<div class="form-group">
+						<label>Usuario</label> <select class="form-control" name="usuario"
+							required="required">
+						<?php
+						
+						$result = $conn->query ( "SELECT ID_USUARIO, NOMBRE FROM USUARIOS WHERE ACTIVO = TRUE" );
+						
+						if (! $result) {
+							trigger_error ( 'Invalid query: ' . $conn->error );
+						} else {
+							if ($result->num_rows > 0) {
+								while ( $row = $result->fetch_assoc () ) {
+									$selected = '';
+									if ($row ["ID_USUARIO"] == $_SESSION ["id_usuario"])
+										$selected = 'selected="selected"';
+									
+									echo '<option value="' . $row ["ID_USUARIO"] . '" ' . $selected . '>' . $row ["ID_USUARIO"] . ' - ' . $row ["NOMBRE"] . '</option>';
 								}
 							}
-							?>
-							</select></td>
-		</tr>
-		<tr>
-			<td>FECHA</td>
-			<td><input type="text" name="fecha"
-				value="<?php
-				$tz = 'America/Mexico_City';
-				$timestamp = time ();
-				$dt = new DateTime ( "now", new DateTimeZone ( $tz ) ); // first argument "must" be a string
-				$dt->setTimestamp ( $timestamp ); // adjust the object to correct timestamp
-				echo $dt->format ( 'd/m/Y' );
-				?>" /></td>
-		</tr>
+						}
+						?>
+						</select>
+					</div>
 
-		<tr>
-			<td colspan="2">
-				<table border="0" id="productos">
-					<tr>
-						<td>PRODUCTO</td>
-						<td>CANTIDAD</td>
-					</tr>
-					<tr>
-						<td>N/A</td>
-						<td>N/A</td>
-					</tr>
-					<tr>
-						<td colspan="3"><input type="button" value="Otro"
-							onClick="agregaProducto()" /></td>
-					</tr>
-				</table>
-			</td>
-		</tr>
+					<div class="form-group">
+						<label>Fecha</label> <input class="form-control" name="fecha"
+							type="date" id="fecha">
+					</div>
 
-		<tr>
-			<td colspan="2" align="center"><input type="submit" /> <input
-				type="reset" onClick="eliminaProductos()" /></td>
-		</tr>
+					<div class="form-group">
+						<table class="table table-striped table-bordered table-hover"
+							id="productos">
+							<thead>
+								<tr>
+									<th>Producto</th>
+									<th>Cantidad</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>NA</td>
+									<td>NA</td>
+								</tr>
+								<tr>
+									<td colspan="2"><input class="btn btn-primary" type="button"
+										value="Otro" onClick="agregaProducto()" /></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-	</table>
+					<button type="submit" class="btn btn-default">Enviar</button>
+					<button type="reset" class="btn btn-default"
+						onclick="eliminaProductos()">Limpiar campos</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 
-</form>
 
 <script type="text/javascript">
 
@@ -103,7 +105,7 @@ function agregaProducto() {
 	var col2 = fila.insertCell(1);
 	
 	col1.innerHTML = seleccion.innerHTML.replace(/#/g,numFila);
-	col2.innerHTML = "<input type=\"text\" id=\"cantidad_"+numFila+"\" name=\"cantidad_"+numFila+"\" onChange=\"cambiaCantidad("+numFila+")\" value=\"1\"/>";
+	col2.innerHTML = "<input class=\"form-control\" type=\"text\" id=\"cantidad_"+numFila+"\" name=\"cantidad_"+numFila+"\" onChange=\"cambiaCantidad("+numFila+")\" value=\"1\"/>";
 	
 	numFila++;
 }
@@ -130,7 +132,7 @@ function cambiaCantidad(numero) {
 
 function eliminaProductos() {
 	var productos = document.getElementById("productos");
-	productos.innerHTML = "<tr><td>PRODUCTO</td><td>CANTIDAD</td></tr><tr><td>N/A</td><td>N/A</td></tr><tr><td colspan=\"3\"><input type=\"button\" value=\"Otro\" onClick=\"agregaProducto()\"/></td></tr>";
+	productos.innerHTML = "<thead><tr><th>Producto</th><th>Cantidad</th></tr></thead><tbody><tr><td>NA</td><td>NA</td></tr><tr><td colspan=\"2\"><input class=\"btn btn-primary\" type=\"button\" value=\"Otro\"onClick=\"agregaProducto()\" /></td></tr></tbody>";
 	
 	numFila = 1;
 }
@@ -139,7 +141,8 @@ function eliminaProductos() {
 
 <!-- la base de los productos obtenidos de base de datos -->
 <div id="baseProductos" style="visibility: hidden;">
-	<select id="producto_#" name="producto_#" onChange="cambiaCantidad()">
+	<select class="form-control" id="producto_#" name="producto_#"
+		onChange="cambiaCantidad()">
 		<option value="-1">Seleccionar</option>
 		<?php
 		

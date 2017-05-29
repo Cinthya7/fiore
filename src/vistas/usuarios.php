@@ -13,6 +13,8 @@ include 'header.php';
 	<h3>Usuarios</h3>
 </div>
 
+<br/>
+
 <table width="100%"
 	class="table table-striped table-bordered table-hover"
 	id="dataTables-example">
@@ -55,7 +57,7 @@ include 'header.php';
 </table>
 <a href="nuevoUsuario.php" class="btn btn-primary">Crear nuevo usuario</a>
 
-
+<br/><br/><br/><br/>
 
 <?php include 'footer.php'?>
 

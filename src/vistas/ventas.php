@@ -12,6 +12,8 @@ include 'header.php';
 	<h3>Ventas</h3>
 </div>
 
+<br/>
+
 <table width="100%"
 	class="table table-striped table-bordered table-hover"
 	id="dataTables-example">
@@ -54,6 +56,9 @@ include 'header.php';
 	</tbody>
 </table>
 <a href="nuevaVenta.php" class="btn btn-primary">Hacer venta</a>
+
+<br/><br/><br/><br/>
+
 <?php include 'footer.php' ?>
 
 <!-- DataTables JavaScript -->

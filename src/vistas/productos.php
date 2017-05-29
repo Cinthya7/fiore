@@ -11,6 +11,8 @@ include 'header.php';
 	<h3>Productos</h3>
 </div>
 
+<br/>
+
 <table width="100%"
 	class="table table-striped table-bordered table-hover"
 	id="dataTables-example">
@@ -54,6 +56,9 @@ include 'header.php';
 	</tbody>
 </table>
 <a href="nuevoProducto.php" class="btn btn-primary">Dar de alta nuevo producto</a>
+
+<br/><br/><br/><br/>
+
 <?php include 'footer.php' ?>
 
 <!-- DataTables JavaScript -->

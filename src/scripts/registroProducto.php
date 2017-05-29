@@ -13,6 +13,6 @@
 	if (!$result) {
 		trigger_error('Invalid query: ' . $conn->error);
 	} else {	
-		header("Location: ../vistas/paginaInicial.php");
+		header("Location: ../vistas/productos.php");
 	}
 ?>

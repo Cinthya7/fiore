@@ -21,11 +21,11 @@ include 'header.php';
 						<fieldset>
 							<div class="form-group">
 								<input class="form-control" placeholder="Usuario" name="usuario"
-									autofocus>
+									autofocus autocomplete="off">
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="Password" name="pass"
-									type="password" value="">
+									type="password" value="" autocomplete="off">
 							</div>
 							<!-- Change this to a button or input when using this as a form -->
 							<input type="submit" class="btn btn-lg btn-success btn-block">
