@@ -28,8 +28,8 @@
 						<td><b>MONTO</b></td>
 						<td><b>USUARIO</b></td>
 						<td><b>FECHA</b></td>
-						<td><b>MODIFICAR</b></td>
-						<td><b>DESACTIVAR</b></td>
+						<!-- <td><b>MODIFICAR</b></td> -->
+						<!-- <td><b>DESACTIVAR</b></td> -->
 					</tr>
 					
 					<?php
@@ -48,12 +48,12 @@
 								echo	"<td>".$row["MONTO"]."</td>";
 								echo	"<td>".$row["ID_USUARIO"]."</td>";
 								echo	"<td>".$row["FECHA"]."</td>";
-								echo	"<td><a href='modificarProducto.php?id_producto=".$row["ID_VENTA"]."'>MODIFICAR</a></td>";
-								echo	"<td><a href='eliminarProducto.php?id_producto=".$row["ID_VENTA"]."'>DESACTIVAR</a></td>";
+								//echo	"<td><a href='modificarProducto.php?id_producto=".$row["ID_VENTA"]."'>MODIFICAR</a></td>";
+								//echo	"<td><a href='eliminarProducto.php?id_producto=".$row["ID_VENTA"]."'>DESACTIVAR</a></td>";
 								echo "</tr>";
 							}
 						} else {
-							echo "<tr><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>";
+							echo "<tr><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>";
 						}
 						
 					?>

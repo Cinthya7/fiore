@@ -27,7 +27,7 @@
 						<td><b>ID USUARIO</b></td>
 						<td><b>NOMBRE</b></td>
 						<td><b>MODIFICAR</b></td>
-						<td><b>DESACTIVAR</b></td>
+						<!--  <td><b>DESACTIVAR</b></td> -->
 					</tr>
 					
 					<?php
@@ -45,11 +45,11 @@
 								echo	"<td>".$row["ID_USUARIO"]."</td>";
 								echo	"<td>".$row["NOMBRE"]."</td>";
 								echo	"<td><a href='modUsuario.php?id_usuario=".$row["ID_USUARIO"]."'>MODIFICAR</a></td>";
-								echo	"<td><a href='desactivarUsuario.php?id_usuario=".$row["ID_USUARIO"]."'>DESACTIVAR</a></td>";
+								//echo	"<td><a href='desactivarUsuario.php?id_usuario=".$row["ID_USUARIO"]."'>DESACTIVAR</a></td>";
 								echo "</tr>";
 							}
 						} else {
-							echo "<tr><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>";
+							echo "<tr><td>NA</td><td>NA</td><td>NA</td></tr>";
 						}
 						
 					?>

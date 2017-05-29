@@ -30,7 +30,7 @@
 						<td><b>CANTIDAD</b></td>
 						<td><b>PRECIO UNITARIO</b></td>
 						<td><b>MODIFICAR</b></td>
-						<td><b>DESACTIVAR</b></td>
+						<!--  <td><b>DESACTIVAR</b></td> -->
 					</tr>
 					
 					<?php
@@ -51,11 +51,11 @@
 								echo	"<td>".$row["CANTIDAD"]."</td>";
 								echo	"<td>".$row["PRECIO_UNIT"]."</td>";
 								echo	"<td><a href='modProducto.php?id_producto=".$row["ID_PRODUCTO"]."'>MODIFICAR</a></td>";
-								echo	"<td><a href='eliminarProducto.php?id_producto=".$row["ID_PRODUCTO"]."'>DESACTIVAR</a></td>";
+								//echo	"<td><a href='eliminarProducto.php?id_producto=".$row["ID_PRODUCTO"]."'>DESACTIVAR</a></td>";
 								echo "</tr>";
 							}
 						} else {
-							echo "<tr><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>";
+							echo "<tr><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>";
 						}
 						
 					?>
