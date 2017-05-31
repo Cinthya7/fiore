@@ -21,14 +21,6 @@ include '../utils/conexion.php';
 				<form role="form" action="../scripts/registroVenta.php"
 					method="POST">
 					<div class="form-group">
-						<label>Monto</label>
-						<div class="form-group input-group">
-							<span class="input-group-addon">$</span> <input
-								class="form-control" name="monto" id="monto"
-								placeholder="Monto total" maxlength="13" autocomplete="off">
-						</div>
-					</div>
-					<div class="form-group">
 						<label>Usuario</label> <select class="form-control" name="usuario"
 							required="required">
 						<?php
@@ -77,6 +69,14 @@ include '../utils/conexion.php';
 								</tr>
 							</tbody>
 						</table>
+					</div>
+					<div class="form-group">
+						<label>Monto</label>
+						<div class="form-group input-group">
+							<span class="input-group-addon">$</span> <input
+								class="form-control" name="monto" id="monto"
+								placeholder="Monto total" maxlength="13" autocomplete="off">
+						</div>
 					</div>
 
 					<button type="submit" class="btn btn-default">Enviar</button>
